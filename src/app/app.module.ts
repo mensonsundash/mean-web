@@ -8,8 +8,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { LayoutsModule } from './layouts/layouts.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { LayoutsAdminModule } from './layouts-admin/layouts-admin.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +23,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     RouterOutlet,
     MatInputModule,
     MatFormFieldModule,
+    MatToolbarModule,
     LayoutsModule,
+    LayoutsAdminModule,
   ],
   bootstrap: [AppComponent],
   providers: [
