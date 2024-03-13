@@ -1,1 +1,18 @@
-<p>header works!</p>
+  <mat-toolbar class="md-default-theme mat-elevation-z2 md-medium-tall md-toolbar-tools">
+    <span>
+      <span class="material-icons">
+        face
+      </span>
+      APP
+    </span>
+
+    <div class="spacer"></div>
+
+    <a mat-button routerLink="home">Home</a>
+    <a mat-button routerLink="about">About Us</a>
+
+    <a mat-button routerLink="/auth/login">Signin</a>
+    <a mat-raised-button
+    color="accent"
+    routerLink="/auth/register" class="signup">Signup</a>
+  </mat-toolbar>

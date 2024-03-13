@@ -4,8 +4,9 @@ import { RouterModule } from '@angular/router';
 import { LayoutsComponent } from './layouts.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     LayoutsComponent,
@@ -14,7 +15,10 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
   ]
 })
 export class LayoutsModule { }
