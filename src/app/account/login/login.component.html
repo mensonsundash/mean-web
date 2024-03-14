@@ -1,24 +1,92 @@
-<form>
-  <div class="login-container">
-    <div class="login-content">
-      <p class="title">Login</p>
-      <p class="title-intro">Welcome back!</p>
-      <mat-form-field appearance="outline">
-        <mat-label>Username</mat-label>
-        <input matInput type="text">
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
-        <input matInput type="password">
-      </mat-form-field>
+<div class="login-container background-sky">
+  <span style="position:absolute;  top: 0; left: 0;margin-top: 20px;margin-left: 20px;"  >
+    <a routerLink="/home" style="color: white;">
+      <span class="material-icons">
+        home
+      </span>
+    </a>
+  </span>
 
-      <p class="forgot-label">Forgot Password</p>
+  <div class="login-content background-white">
+    <p class="title">Login</p>
+    <p class="title-intro">Welcome back!</p>
 
-      <p class="alternative">Don't have an account? <span><a routerLink="/auth/register">Signup</a></span></p>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
 
-      <div class="or-line-divider">
-        <p>Or</p>
+      <div class="mb-3">
+        <label class="form-label" for="username">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" [ngClass]="{
+                'is-invalid': submitted && f['email'].errors,
+                'is-valid': f['email'].valid && !f['email'].pristine
+                }" placeholder="Enter email">
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback" align="left">
+          <div *ngIf="f['email'].errors['required']">Email is required</div>
+          <div *ngIf="f['email'].errors['email']">Email should be valid</div>
+        </div>
       </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="{
+                'is-invalid': submitted && f['password'].errors,
+                'is-valid': f['password'].valid && !f['password'].pristine
+                }" placeholder="Enter password">
+        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback" align="left">
+          <div *ngIf="f['password'].errors['required']">Password is required</div>
+        </div>
+      </div>
+
+      <input type="submit" value="Login">
+      <!-- <button mat-raised-button color="primary" type="submit">Login</button> -->
+      <!-- <div class="links">
+        <a href="#">Forgot password</a>
+        <a href="#">Register</a>
+      </div> -->
+    </form>
+
+    <p class="forgot-label">Forgot Password</p>
+
+    <p class="alternative">Don't have an account? <span><a routerLink="/auth/register">Signup</a></span></p>
+
+    <div class="or-line-divider">
+      <p>Or</p>
     </div>
   </div>
-</form>
+</div>
+
+<!-- <div class="form-layout" ng-app="app.loginForm" ng-controller="LoginCtrl as Login">
+  <h2>
+    Welcome
+  </h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="input-field" ng-class="{active : Login.isLabelActive(loginForm.email)}">
+      <label>
+        E-mail
+      </label>
+
+      <input type="email" name="email" ng-blur="Login.blurInput(loginForm.email)"
+        ng-focus="Login.focusInput(loginForm.email)" ng-model="Login.user.email" class="form-control"
+        ng-class="{'is-dirty' : Login.isDirty(loginForm.email)}" required autofocus />
+    </div>
+
+    <div class="input-field" ng-class="{active : Login.isLabelActive(loginForm.password)}">
+      <label>
+        Password
+      </label>
+
+      <input type="password" name="password" ng-blur="Login.blurInput(loginForm.password)"
+        ng-focus="Login.focusInput(loginForm.password)" ng-model="Login.user.password" ng-maxlength="30"
+        ng-minlength="6" class="form-control" ng-class="{'is-dirty' : Login.isDirty(loginForm.password)}" required />
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="Login.submit()"
+      ng-disabled="Login.isFormInvalid(loginForm)">
+      Log In
+    </button>
+  </form>
+
+  <h4 ng-if="Login.success">
+    You are now logged in. Welcome to the party!
+  </h4>
+</div> -->

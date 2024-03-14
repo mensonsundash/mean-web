@@ -1,8 +1,5 @@
-.background-sky {
-  background-color: #0143A3;
-  background: linear-gradient(#0143A3, #0273D4);
-  color: #FFFFFF;
-}
+@import '../../../theme/theme.scss';
+
 .hero {
   position: relative;
   padding: 16px;
