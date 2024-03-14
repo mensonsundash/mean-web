@@ -5,6 +5,7 @@ import { ModulesRoutingModule } from './modules-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutsAdminModule } from '../layouts-admin/layouts-admin.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { LayoutsAdminModule } from '../layouts-admin/layouts-admin.module';
   imports: [
     CommonModule,
     ModulesRoutingModule,
+    ReactiveFormsModule,
     LayoutsAdminModule
   ]
 })

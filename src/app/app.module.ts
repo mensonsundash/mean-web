@@ -12,6 +12,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { LayoutsModule } from './layouts/layouts.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { LayoutsAdminModule } from './layouts-admin/layouts-admin.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,10 +24,13 @@ import { LayoutsAdminModule } from './layouts-admin/layouts-admin.module';
     AppRoutingModule,
     RouterOutlet,
     MatInputModule,
+    MatButtonModule,
     MatFormFieldModule,
     MatToolbarModule,
     LayoutsModule,
     LayoutsAdminModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   bootstrap: [AppComponent],
   providers: [

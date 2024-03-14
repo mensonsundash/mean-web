@@ -1,1 +1,87 @@
-<p>register works!</p>
+<div class="login-container background-sky">
+  <span style="position:absolute;  top: 0; left: 0;margin-top: 20px;margin-left: 20px;"  >
+    <a routerLink="/home" style="color: white;">
+      <span class="material-icons">
+        home
+      </span>
+    </a>
+  </span>
+  <div class="login-content background-white">
+    <p class="title">Register</p>
+    <p class="title-intro">Your Account!</p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <div class="mb-3">
+        <label class="form-label" for="full_name">Full Name</label>
+        <input type="text" class="form-control" id="full_name" formControlName="full_name" [ngClass]="{
+                'is-invalid': submitted && f['full_name'].errors,
+                'is-valid': f['full_name'].valid && !f['full_name'].pristine
+                }" placeholder="Enter full name">
+        <div *ngIf="submitted && f['full_name'].errors" class="invalid-feedback" align="left">
+          <div *ngIf="f['full_name'].errors['required']">Full name is required</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="username">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" [ngClass]="{
+                'is-invalid': submitted && f['email'].errors,
+                'is-valid': f['email'].valid && !f['email'].pristine
+                }" placeholder="Enter email">
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback" align="left">
+          <div *ngIf="f['email'].errors['required']">Email is required</div>
+          <div *ngIf="f['email'].errors['email']">Email should be valid</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="{
+                'is-invalid': submitted && f['password'].errors,
+                'is-valid': f['password'].valid && !f['password'].pristine
+                }" placeholder="Enter password">
+        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback" align="left">
+          <div *ngIf="f['password'].errors['required']">Password is required</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="confirm_password">Confirm Password</label>
+        <input type="password" class="form-control" id="confirm_password" formControlName="confirm_password" [ngClass]="{
+                'is-invalid': submitted && f['confirm_password'].errors,
+                'is-valid': f['confirm_password'].valid && !f['confirm_password'].pristine
+                }" placeholder="Enter confirm password">
+        <div *ngIf="submitted && f['confirm_password'].errors" class="invalid-feedback" align="left">
+          <div *ngIf="f['confirm_password'].errors['required']">Confirm Password is required</div>
+          <div *ngIf="f['confirm_password'].errors['match']">Confirm Password shoulde be same as password </div>
+        </div>
+      </div>
+
+        <!-- <mat-label>Full Name</mat-label>
+        <input type="text">
+
+
+        <mat-label>Email</mat-label>
+        <input type="email"> -->
+
+
+        <!-- <mat-label>Password</mat-label>
+        <input type="password">
+
+
+        <mat-label>Confirm Password</mat-label>
+        <input type="password"> -->
+
+        <input type="submit" value="Register">
+
+    </form>
+
+
+    <p class="alternative">Already have an account? <span><a routerLink="/auth/login">Login</a></span></p>
+
+    <div class="or-line-divider">
+      <p>Or</p>
+    </div>
+  </div>
+</div>
