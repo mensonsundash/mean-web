@@ -14,12 +14,14 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { LayoutsAdminModule } from './layouts-admin/layouts-admin.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     CommonModule,
     AppRoutingModule,
     RouterOutlet,
@@ -34,7 +36,8 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   bootstrap: [AppComponent],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient()
   ]
 })
 export class AppModule {
