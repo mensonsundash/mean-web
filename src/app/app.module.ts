@@ -6,15 +6,11 @@ import { AppComponent } from './app.component';
 import { RouterOutlet } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { LayoutsModule } from './layouts/layouts.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { LayoutsAdminModule } from './layouts-admin/layouts-admin.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,14 +21,15 @@ import { HttpClientModule, provideHttpClient } from '@angular/common/http';
     CommonModule,
     AppRoutingModule,
     RouterOutlet,
-    MatInputModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatToolbarModule,
     LayoutsModule,
-    LayoutsAdminModule,
     FormsModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      progressBar: true,
+      progressAnimation: 'increasing',
+      preventDuplicates: true,
+    })
   ],
   bootstrap: [AppComponent],
   providers: [

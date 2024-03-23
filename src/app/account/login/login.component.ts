@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit{
   submitted: boolean = false;
 
   constructor(
-    private formBuilder: UntypedFormBuilder
+    private formBuilder: UntypedFormBuilder,
+    private authService: AuthService
     ) {
 
   }
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit{
       return;
     }else{
       // call api requese
+      this.authService.login(this.loginForm.value);
     }
   }
 

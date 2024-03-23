@@ -1,0 +1,15 @@
+<nav class="w-full fixed p-2 flex justify-between items-center bg-blue-300 shadow-lg">
+  <div class="logo">
+    <span class="text-black text-2xl flex justify-start items-center">
+      <a routerLink="dashboard"><i class="fa fa-truck font-light text-3xl me-2" aria-hidden="true"></i> DELIV Admin Panel</a>
+    </span>
+  </div>
+
+  <div class="nav-items">
+    <ng-container *ngIf="isLoggedIn">
+      <span class="text-xl cursor-pointer text-gray-700 font-bold m-3 hover:underline hover:text-blue-800"><a >Welcome Admin</a></span>
+      <span class="text-xl cursor-pointer text-gray-700 font-bold m-3 hover:underline hover:text-blue-800"><a routerLink="logout">Logout</a></span>
+    </ng-container>
+
+  </div>
+</nav>

@@ -1,0 +1,42 @@
+<nav class="w-full fixed p-2 flex justify-between items-center bg-gray-100 shadow-lg">
+  <div class="logo">
+    <span class="text-black text-2xl flex justify-start items-center">
+      <i class="fa fa-truck font-light text-3xl me-2" aria-hidden="true"></i> DELIV
+    </span>
+  </div>
+
+  <div class="search relative">
+    <span class="absolute mt-1.5 mx-3"><i class="fa fa-search font-light" aria-hidden="true"></i></span>
+    <input type="text" placeholder="Search Products" class="w-96 p-2 pl-9 rounded rounded-r-none text-gray-600"/>
+    <button class="bg-slate-400 p-2 rounded-r text-white outline-none outline-0">Search</button>
+  </div>
+
+  <div class="nav-items">
+    <span class="text-xl cursor-pointer text-gray-700 font-bold m-3 hover:underline hover:text-blue-800"><a routerLink="home">Home</a></span>
+    <span class="text-xl cursor-pointer text-gray-700 font-bold m-3 hover:underline hover:text-blue-800"><a routerLink="about">About</a></span>
+    <span class="text-xl cursor-pointer text-gray-700 font-bold m-3 hover:underline hover:text-blue-800">Cart</span>
+    <span class="text-xl cursor-pointer text-gray-700 font-bold m-3 hover:underline hover:text-blue-800"><a routerLink="/auth/login">Login</a></span>
+    <span class="text-xl cursor-pointer text-gray-700 font-bold m-3 hover:underline hover:text-blue-800"><a routerLink="/auth/register">Signup</a></span>
+
+  </div>
+</nav>
+
+<!--
+<mat-toolbar class="md-default-theme mat-elevation-z2 md-medium-tall md-toolbar-tools">
+    <span>
+      <span class="material-icons">
+        face
+      </span>
+      APP
+    </span>
+
+    <div class="spacer"></div>
+
+    <a mat-button routerLink="home">Home</a>
+    <a mat-button routerLink="about">About Us</a>
+
+    <a mat-button routerLink="/auth/login" style="margin-right: 10px">Signin</a>
+    <a mat-raised-button
+    color="accent"
+    routerLink="/auth/register" class="signup">Signup</a>
+  </mat-toolbar> -->
