@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { confirmPasswordValidator } from '../../shared/utils/validators.utils';
 import { AuthService } from '../../core/services/auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,8 +14,7 @@ export class RegisterComponent implements OnInit{
 
   constructor(
     private formBuilder: UntypedFormBuilder,
-    private authService: AuthService,
-    private router: Router
+    private authService: AuthService
   ) {
 
   }
@@ -39,22 +37,12 @@ export class RegisterComponent implements OnInit{
 
   onSubmit(){
     this.submitted = true;
-    console.log(this.registerForm.value)
+
     if(this.registerForm.invalid){
       return;
     }else{
       // call api requese
-      this.authService.register(this.registerForm.value)
-      .subscribe({
-        next:(res)=>{
-          alert("User Created!");
-          this.registerForm.reset();
-          this.router.navigate(['auth/login'])
-        },
-        error:(err)=>{
-          console.log(err);
-        }
-      });
+      this.authService.register(this.registerForm.value);
     }
   }
 }
