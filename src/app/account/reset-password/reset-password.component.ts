@@ -51,7 +51,8 @@ export class ResetPasswordComponent implements OnInit{
     }else{
       let resetFormValue = {
         token: this.token,
-        password: this.resetForm.value.password
+        password: this.resetForm.value.password,
+        confirm_password: this.resetForm.value.confirm_password,
       }
       //api request
       this.authService.reset_password(resetFormValue);
