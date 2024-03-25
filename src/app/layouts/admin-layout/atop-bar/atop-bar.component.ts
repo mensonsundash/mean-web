@@ -15,4 +15,8 @@ export class AtopBarComponent {
     this.isLoggedIn = this.authService.isLoggedIn();
   }
 
+  logout(){
+    this.authService.logout();
+  }
+
 }
