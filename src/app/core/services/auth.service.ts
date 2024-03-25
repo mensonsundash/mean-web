@@ -82,4 +82,11 @@ export class AuthService {
   isLoggedIn(){
     return !!localStorage.getItem("user_id");
   }
+
+  logout(){
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("token");
+    this.router.navigate(['auth/login']);
+    this.toastr.info("Logout successful.", "Info:");
+  }
 }

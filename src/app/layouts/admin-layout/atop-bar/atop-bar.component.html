@@ -8,7 +8,7 @@
   <div class="nav-items">
     <ng-container *ngIf="isLoggedIn">
       <span class="text-xl cursor-pointer text-gray-700 font-bold m-3 hover:underline hover:text-blue-800"><a >Welcome Admin</a></span>
-      <span class="text-xl cursor-pointer text-gray-700 font-bold m-3 hover:underline hover:text-blue-800"><a routerLink="logout">Logout</a></span>
+      <span class="text-xl cursor-pointer text-gray-700 font-bold m-3 hover:underline hover:text-blue-800"><a (click)="logout()">Logout</a></span>
     </ng-container>
 
   </div>
