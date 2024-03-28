@@ -4,7 +4,11 @@ import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
-const AUTH_API = environment.API_ENDPOINT+ "/auth/"
+const AUTH_API = environment.API_ENDPOINT+ "/auth"
+
+const httpOptions = {
+  headers: new HttpHeaders({ "Content-Type": "application/json" }),
+}
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +23,7 @@ export class AuthService {
 
 
   register(req: any) {
-    return this.http.post(AUTH_API+"register", req)
+    return this.http.post(AUTH_API+"/register", req, httpOptions)
     .subscribe({
       next:(res)=>{
         this.router.navigate(['auth/login']);
@@ -32,10 +36,9 @@ export class AuthService {
   }
 
   login(req: any){
-    return this.http.post(AUTH_API+"login", req)
+    return this.http.post(AUTH_API+"/login", req, httpOptions)
     .subscribe({
       next:(res:any) =>{
-        console.log("ACCOUNT DETIAILS: ", res.data)
         localStorage.setItem("user_id", res.data._id);
         localStorage.setItem("token", res.accessToken);
         if(res.data.isAdmin){
@@ -54,7 +57,7 @@ export class AuthService {
   }
 
   forget_password(req:any){
-    return this.http.post(AUTH_API+"forget-password", req)
+    return this.http.post(AUTH_API+"/forget-password", req, httpOptions)
     .subscribe({
       next: (res) =>{
         this.router.navigate(['auth/login']);
@@ -67,7 +70,7 @@ export class AuthService {
   }
 
   reset_password(req: any){
-    return this.http.post(AUTH_API+"reset-password", req)
+    return this.http.post(AUTH_API+"/reset-password", req, httpOptions)
     .subscribe({
       next: (res) =>{
         this.router.navigate(['auth/login']);
