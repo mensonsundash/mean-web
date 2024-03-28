@@ -1,1 +1,53 @@
-<p>uside-bar works!</p>
+<div class="flex items-center justify-center mt-8">
+  <div class="flex items-center">
+    <i class="p-1 text-xl fa fa-truck text-gray-500"></i>
+
+    <span class="mx-2 text-2xl font-semibold text-white">DELIV</span>
+  </div>
+</div>
+
+<nav class="mt-10 sidebar fixed top-0 bottom-0 lg:left-0 left-[-300px] p-2">
+  <div routerLink="/user/dashboard" class="flex items-center px-6 py-2 mt-4 rounded-md cursor-pointer text-gray-100 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100">
+    <i class="p-1 text-xl fa fa-tachometer"></i>
+    <span class="mx-3">Dashboard</span>
+  </div>
+
+  <div class="flex items-center px-6 py-2 mt-4 rounded-md cursor-pointer text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100">
+    <i class="p-1 text-xl fa fa-shopping-basket"></i>
+    <span class="mx-3">Cart</span>
+  </div>
+
+  <div class="flex items-center px-6 py-2 mt-4 rounded-md cursor-pointer text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100">
+    <i class="p-1 text-xl fa fa-archive"></i>
+    <span class="mx-3">Products</span>
+  </div>
+
+  <div class="menu">
+    <div class="flex items-center px-6 py-2 mt-4 rounded-md cursor-pointer
+    text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+    (click)="toggleDropdown()">
+      <i class="p-1 text-xl fa fa-cog"></i>
+      <div class="flex justify-between w-full items-center">
+        <span class="mx-3">Settings</span>
+        <span class="text-sm" [ngClass]="{'rotate-180': !isSubmenuOpen, 'rotate-90': isSubmenuOpen}" id="arrow">
+          <i class="fa fa-chevron-up"></i>
+        </span>
+      </div>
+    </div>
+    <div class="text-left text-sm font-thin mt-2 w-4/5 mx-auto text-gray-200" id="submenu" *ngIf="isSubmenuOpen">
+        <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Level 1</h1>
+        <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Level 2</h1>
+        <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Level 3</h1>
+    </div>
+  </div>
+
+
+  <!-- <div class="flex items-center px-6 py-2 mt-4 rounded-md cursor-pointer text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100">
+    <i class="p-1 text-xl fa fa-sign-out"></i>
+    <div class="flex justify-between w-full items-center">
+      <span class="mx-3">Logout</span>
+    </div>
+  </div> -->
+
+
+</nav>

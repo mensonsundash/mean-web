@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './user-layout.component.scss'
 })
 export class UserLayoutComponent {
-
+  notificationOpen:boolean = true;
+  sidebarOpen:boolean = true;
+  dropdownOpen:boolean = true;
 }

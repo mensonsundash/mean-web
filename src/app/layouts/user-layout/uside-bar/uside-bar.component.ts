@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './uside-bar.component.scss'
 })
 export class UsideBarComponent {
+  isSubmenuOpen = false;
 
+  toggleDropdown() {
+    this.isSubmenuOpen = !this.isSubmenuOpen;
+  }
 }
