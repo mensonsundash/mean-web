@@ -9,8 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutsModule } from './layouts/layouts.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { AuthInterceptor } from './core/helpers/auth.interceptor';
+import { ErrorInterceptor } from './core/helpers/error.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +35,8 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   bootstrap: [AppComponent],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     provideAnimationsAsync(),
     provideHttpClient()
   ]
