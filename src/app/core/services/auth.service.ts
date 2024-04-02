@@ -30,7 +30,7 @@ export class AuthService {
         this.toastr.success("Register Successfull!", "Success:");
       },
       error:(err)=>{
-        this.toastr.error(err.error.message, "Error:");
+        this.toastr.error(err.message, "Error:");
       }
     });
   }
@@ -51,7 +51,7 @@ export class AuthService {
 
       },
       error:(err:any) =>{
-        this.toastr.error(err.error.message, "Error:");
+        this.toastr.error(err.message, "Error:");
       }
     });
   }
@@ -64,7 +64,7 @@ export class AuthService {
         this.toastr.success("Email sent! Please check your email for reset link.", "Success:");
       },
       error: (err)=>{
-        this.toastr.error(err.error.message, "Error:");
+        this.toastr.error(err.message, "Error:");
       }
     });
   }
@@ -77,7 +77,7 @@ export class AuthService {
         this.toastr.success("Password reset successful.", "Success:");
       },
       error: (err) => {
-        this.toastr.error(err.error.message, "Error:");
+        this.toastr.error(err.message, "Error:");
       }
     })
   }
